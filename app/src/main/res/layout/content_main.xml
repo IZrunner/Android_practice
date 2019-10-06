@@ -10,7 +10,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textTokenStatusMA"
+        android:id="@+id/textTokenStatusAuth"
         android:layout_width="162dp"
         android:layout_height="54dp"
         android:text="TextView"
