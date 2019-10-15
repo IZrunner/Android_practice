@@ -16,9 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signInButton"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:text="SIGN IN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
     <Button
         android:id="@+id/signOutButton"
-        android:layout_width="294dp"
+        android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="28dp"
@@ -30,17 +43,14 @@
         app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
     <Button
-        android:id="@+id/signInButton"
-        android:layout_width="294dp"
+        android:id="@+id/disconnectButton"
+        android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="100dp"
-        android:text="SIGN IN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="24dp"
+        android:text="DISCONNECT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+        app:layout_constraintTop_toBottomOf="@+id/signOutButton" />
 
     <TextView
         android:id="@+id/passwordText"
@@ -67,4 +77,5 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
