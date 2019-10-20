@@ -4,4 +4,9 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="textview">TextView</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">SIGN OUT</string>
+    <string name="disconnect">DISCONNECT</string>
+    <string name="title_activity_authentication">AuthenticationActivity</string>
+    <string name="title_activity_edit_note">EditNoteActivity</string>
 </resources>
