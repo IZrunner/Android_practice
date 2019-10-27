@@ -57,16 +57,17 @@ public class AuthenticationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEmail.getText().toString();
                 String pass = mPassword.getText().toString();
+
                 if (!email.equals("") && !pass.equals("")) {
                     mAuth.signInWithEmailAndPassword(email, pass);
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    if (user != null) {
-                        Intent k = new Intent(AuthenticationActivity.this, MainActivity.class);
-                        startActivity(k);
-                        Toast.makeText(AuthenticationActivity.this, "User verified, " + user.getUid(),
-                                Toast.LENGTH_SHORT).show();
-                        //finish();
-                    }
+                }
+
+                FirebaseUser user = mAuth.getCurrentUser();
+                if (user != null) {
+                    updateUI(user);
+                    Toast.makeText(AuthenticationActivity.this, "User verified, " + user.getUid(),
+                            Toast.LENGTH_SHORT).show();
+                    //finish();
                 }
                 else {
                     Toast.makeText(AuthenticationActivity.this, "Authentication failed.",
