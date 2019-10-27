@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +10,7 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="100dp"
         android:text="@string/sign_in"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,30 +31,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
-    <TextView
+    <EditText
         android:id="@+id/passwordText"
         android:layout_width="368dp"
         android:layout_height="45dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="100dp"
-        android:text="@string/password"
+        android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
-    <TextView
+    <EditText
         android:id="@+id/emailText"
         android:layout_width="369dp"
         android:layout_height="45dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="100dp"
-        android:text="@string/email"
+        android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
