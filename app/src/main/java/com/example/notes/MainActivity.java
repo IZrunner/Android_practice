@@ -10,13 +10,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private Button mSignOutButton;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        mSignOutButton = findViewById(R.id.signOutMAButton);
+        //mSignOutButton = findViewById(R.id.signOutMAButton);
         mAuth = FirebaseAuth.getInstance();
 
         setSupportActionBar(toolbar);
@@ -49,15 +49,29 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        mSignOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                Intent k = new Intent(MainActivity.this, AuthenticationActivity.class);
-                startActivity(k);
-            }
-        });
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.main_new_note_btn:
+                Intent newIntent = new Intent(MainActivity.this, NewNoteActivity.class);
+                startActivity(newIntent);
+                break;
+        }
+
+        return true;
     }
 
     @Override

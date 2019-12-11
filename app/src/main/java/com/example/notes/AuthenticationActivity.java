@@ -11,8 +11,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AuthenticationActivity extends AppCompatActivity {
@@ -21,6 +28,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     private static final String TAG = "AuthenticationActivity";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseFirestore fNotesDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.passwordText);
 
         mAuth = FirebaseAuth.getInstance();
+        fNotesDatabase = FirebaseFirestore.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -60,6 +69,23 @@ public class AuthenticationActivity extends AppCompatActivity {
 
                 if (!email.equals("") && !pass.equals("")) {
                     mAuth.signInWithEmailAndPassword(email, pass);
+//                    Map<String, String> userMap = new HashMap<>();
+//                    userMap.put("bio", "signed in");
+//
+//                    fNotesDatabase.collection("users")
+//                            .add(userMap)
+//                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                                @Override
+//                                public void onSuccess(DocumentReference documentReference) {
+//                                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId() + ", user added to collection");
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Log.w(TAG, "Error adding user to collection", e);
+//                                }
+//                            });
                 }
 
                 FirebaseUser user = mAuth.getCurrentUser();

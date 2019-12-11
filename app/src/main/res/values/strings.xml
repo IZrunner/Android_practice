@@ -9,4 +9,8 @@
     <string name="disconnect">DISCONNECT</string>
     <string name="title_activity_authentication">AuthenticationActivity</string>
     <string name="title_activity_edit_note">EditNoteActivity</string>
+    <string name="create_note">Create Note</string>
+    <string name="description">Type your description here...</string>
+    <string name="type_title">Type your title here...</string>
+    <string name="new_note">New note</string>
 </resources>
