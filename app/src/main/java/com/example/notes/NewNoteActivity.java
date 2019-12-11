@@ -139,4 +139,41 @@ public class NewNoteActivity extends AppCompatActivity {
 
     }
 
+    private void deleteNote(String title, String content) {
+        final String[] id = new String[1];
+        fNotesDatabase.collection("notes")
+                .whereEqualTo("title", title)
+                .whereEqualTo("content", content)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                id[0] = document.getId();
+                                Log.d(TAG, "Document id got successfully");
+                                break;
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        DocumentReference noteReference = fNotesDatabase.collection("notes").document(id[0]);
+        noteReference
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error deleting document", e);
+                    }
+                });
+    }
+
 }
